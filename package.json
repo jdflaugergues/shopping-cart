@@ -1,7 +1,7 @@
 {
-  "name": "angular-quickstart",
+  "name": "shopping-cart",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Small Single Page app relating to a \"Shopping cart\"",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
@@ -13,8 +13,8 @@
     "tsc": "tsc",
     "tsc:w": "tsc -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["shopping cart"],
+  "author": "Jonathan de Flaugergues <jdflaugergues@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@angular/common": "~2.4.0",
@@ -53,5 +53,8 @@
     "@types/node": "^6.0.46",
     "@types/jasmine": "^2.5.36"
   },
-  "repository": {}
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jdflaugergues/shopping-cart.git"
+  }
 }

@@ -1,0 +1,26 @@
+
+
+
+  <div class="col-sm-4 col-lg-4 col-md-4" *ngFor="let product of products" (click)="onSelect(product)">
+    <div class="thumbnail">
+      <img src="http://placehold.it/320x150" alt="">
+      <div class="caption">
+        <h4 class="pull-right">${{ product.price }}</h4>
+        <h4><a href="#">{{ product.title }}</a>
+        </h4>
+        <p>{{ product.desc }}</p>
+      </div>
+      <div class="ratings">
+        <p class="pull-right">18 reviews</p>
+        <p>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+<product [product]="productSelected"></product>

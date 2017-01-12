@@ -1,7 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Config } from './config.service';
+import { Product } from './products/shared/product.model';
+import { ProductService } from './products/shared/product.service';
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  selector: 'shopping-app',
+  templateUrl: 'app/app.component.html',
+  providers: [ProductService]
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent implements OnInit {
+  name = Config.MAIN_HEADING;
+  products: Product[];
+
+  constructor(private productService: ProductService) { }
+
+  getProducts(): void {
+    this.productService.getProducts().then(products => this.products = products);
+  }
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+}
