@@ -1,0 +1,27 @@
+.app-header {
+  background: #1976D2;
+  height: 56px;
+  min-height: 56px;
+  padding: 0;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.24);
+}
+
+.badge-notify{
+  background:red;
+}
+
+li a {
+  color: #ffffff;
+  height: 56px;
+  background-color: #1976D2;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
+}
+
+li a:hover {
+  background-color: #1E88E5;
+  -webkit-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
+}

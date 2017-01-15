@@ -1,0 +1,46 @@
+.shopping-cart {
+
+}
+
+.product-img{
+  width: 115px;
+  height: 115px;
+}
+
+.shopping-cart-label {
+  color: #22398e;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.price {
+  color: #f00;
+  font-family: "impact,trebuchet ms,arial,sans-serif";
+  font-size: 3em;
+}
+
+.product-price {
+  color: #f00;
+  font-family: "impact,trebuchet ms,arial,sans-serif";
+  font-size: 1.3em;
+  font-weight: normal;
+}
+
+.pull-right {
+  display: flex;
+}
+
+.pull-right div {
+  margin-right: 10px;
+}
+
+.btn-purchase {
+  margin-top: 10px;
+  padding-top: 10px;
+  height: 40px;
+}
+
+.btn-purchase span {
+  margin-right: 5px;
+}
