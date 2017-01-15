@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Location }          from '@angular/common';
+
 import { ShoppingCartService } from '../shared/shopping-cart.service';
 import { ShoppingCartProduct } from '../shared/shopping-cart-product.model';
-import { Product } from '../../products/shared/product.model';
+import { Product }             from '../../products/shared/product.model';
 
 @Component({
   templateUrl: 'app/shopping-cart/shopping-cart-list/shopping-cart-list.component.html',
@@ -14,7 +16,10 @@ export class ShoppingCartListComponent implements OnInit {
   nbItems: number = 0;
   total: string = '';
 
-  constructor(private shoppingCartService: ShoppingCartService) { }
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    private location: Location
+  ) {}
 
   // Fetch the shopping cart from the localstorage
   getShoppingCart(): void {
@@ -57,5 +62,9 @@ export class ShoppingCartListComponent implements OnInit {
   // Load the shopping cart from the local storage.
   ngOnInit(): void {
     this.getShoppingCart();
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

@@ -6,11 +6,13 @@ import { Location }                 from '@angular/common';
 
 import { Product } from '../shared/product.model';
 import { ProductService } from '../shared/product.service';
+import { ShoppingCartService } from '../../shopping-cart/shared/shopping-cart.service';
 
 @Component({
   selector: 'product',
   templateUrl: 'app/products/product/product.component.html',
-  styleUrls: ['app/products/product/product.component.css']
+  styleUrls: ['app/products/product/product.component.css'],
+  providers: [ProductService, ShoppingCartService]
 })
 export class ProductComponent {
 
@@ -18,9 +20,15 @@ export class ProductComponent {
 
   constructor(
     private productService: ProductService,
+    private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute,
     private location: Location
   ) {}
+
+  // Add a product to the shopping Cart
+  addProductToShoppingCart(product: Product) {
+    this.shoppingCartService.addShoppingCartProduct(product);
+  }
 
   ngOnInit(): void {
 

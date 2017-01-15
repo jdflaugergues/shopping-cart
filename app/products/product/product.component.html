@@ -1,85 +1,27 @@
-<div *ngIf="product" class="col-md-9">
+<div class="container">
 
-  <button (click)="goBack()">Back</button>
-
-  <div class="thumbnail">
-    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
-    <div class="caption-full">
-      <h4 class="pull-right">${{ product.price }}</h4>
-      <h4><a href="#">{{ product.name }}</a>
-      </h4>
-      <p>See more snippets like these online store reviews at <a target="_blank" href="http://bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-      <p>Want to make these reviews work? Check out
-        <strong><a href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this building a review system tutorial</a>
-        </strong>over at maxoffsky.com!</p>
-      <p>${{ product.desc }}</p>
-    </div>
-    <div class="ratings">
-      <p class="pull-right">3 reviews</p>
-      <p>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star-empty"></span>
-        4.0 stars
-      </p>
-    </div>
-  </div>
-
-  <div class="well">
-
-    <div class="text-right">
-      <a class="btn btn-success">Leave a Review</a>
-    </div>
-
-    <hr>
+  <div *ngIf="product" class="col-md-9">
 
     <div class="row">
-      <div class="col-md-12">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star-empty"></span>
-        Anonymous
-        <span class="pull-right">10 days ago</span>
-        <p>This product was great in terms of quality. I would definitely buy another!</p>
+      <div>
+        <a class="btn btn-danger" role="button" (click)="goBack()"><span class="glyphicon glyphicon-chevron-left"></span>  Go Back</a>
       </div>
     </div>
 
     <hr>
 
-    <div class="row">
-      <div class="col-md-12">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star-empty"></span>
-        Anonymous
-        <span class="pull-right">12 days ago</span>
-        <p>I've alredy ordered another one!</p>
+    <div class="thumbnail">
+      <img class="img-responsive" src="{{ product.urlImage }}" alt="">
+      <div class="caption-full">
+        <h4 class="pull-right">${{ product.price.toFixed(2) }}</h4>
+        <h4>{{ product.name }}</h4>
+        <p>${{ product.desc }}</p>
       </div>
+      <a class="pull-right btn btn-success" role="button" (click)="addProductToShoppingCart(product)"><span class="glyphicon glyphicon-shopping-cart"></span>  Add to Cart</a>
     </div>
 
-    <hr>
-
-    <div class="row">
-      <div class="col-md-12">
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star-empty"></span>
-        Anonymous
-        <span class="pull-right">15 days ago</span>
-        <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
-      </div>
-    </div>
 
   </div>
 
 </div>
-
 <app-footer></app-footer>

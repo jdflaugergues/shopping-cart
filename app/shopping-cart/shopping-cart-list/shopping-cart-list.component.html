@@ -1,5 +1,11 @@
 <div class="container">
 
+  <div class="row">
+    <div>
+      <a class="btn btn-danger" role="button" (click)="goBack()"><span class="glyphicon glyphicon-chevron-left"></span>  Go Back</a>
+    </div>
+  </div>
+
   <div class="row" *ngIf="shoppingCart.length === 0">
     <div class="pull-left shopping-cart-label">
       <span>Your shopping cart is empty !</span>

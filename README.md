@@ -32,8 +32,10 @@ Install the npm packages described in the `package.json` and verify that it work
 
 ```shell
 npm install
-npm start
 ```
+
+> If an error occurred during npm install, throw the `npm install` command again. 
+
 
 ## Run the application
 
@@ -42,6 +44,8 @@ The `npm start` command first compiles the application, then simultaneously re-c
 ```shell
 npm start
 ```
+
+The browser will launch automatically with the app.
 
 Shut it down manually with `Ctrl-C`.
 

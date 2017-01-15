@@ -12,20 +12,11 @@ import { MainHeaderComponent }       from './header/main-header/main-header.comp
 import { FooterComponent }           from './footer/footer.component';
 import { ProductService }            from './products/shared/product.service';
 
-
-//import { ShopRoutingModule }       from './shop-routing.module';
-
+import { ShopRoutingModule }         from './shop-routing.module';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot([
-    //{ path: 'shop', component: ShopComponent },
-    //{ path: 'product/:id', component: ProductComponent },
-    { path: 'product-list', component: ProductListComponent },
-    { path: 'shopping-cart', component: ShoppingCartListComponent },
-    { path: '',   redirectTo: 'product-list', pathMatch: 'full' },
-    //{ path: '**', component: PageNotFoundComponent }
-  ])],
+  imports:      [ BrowserModule, FormsModule, ShopRoutingModule],
   declarations: [ ShopComponent, ProductListComponent, ShoppingCartListComponent, ProductComponent,
                   PageNotFoundComponent, MainHeaderComponent, FooterComponent ],
   providers:    [ ProductService ],
