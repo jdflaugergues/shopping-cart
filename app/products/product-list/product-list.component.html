@@ -1,26 +1,54 @@
+<div class="container">
 
+  <div class="row">
 
+    <div class="col-md-3">
+      <p class="lead">Welcome on my Shop</p>
 
-  <div class="col-sm-4 col-lg-4 col-md-4" *ngFor="let product of products" (click)="onSelect(product)">
-    <div class="thumbnail">
-      <img src="http://placehold.it/320x150" alt="">
-      <div class="caption">
-        <h4 class="pull-right">${{ product.price }}</h4>
-        <h4><a href="#">{{ product.title }}</a>
-        </h4>
-        <p>{{ product.desc }}</p>
-      </div>
-      <div class="ratings">
-        <p class="pull-right">18 reviews</p>
-        <p>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star"></span>
-          <span class="glyphicon glyphicon-star-empty"></span>
-        </p>
+      <div class="panel panel-default">
+        <div class="panel-heading">Categories</div>
+
+        <div class="list-group">
+          <a class="list-group-item" [class.active]="currentCategory === 'laptop'" (click)="filterCategory('laptop')">Laptop</a>
+          <a class="list-group-item" [class.active]="currentCategory === 'monitor'" (click)="filterCategory('monitor')">Monitor</a>
+          <a class="list-group-item" [class.active]="currentCategory === 'keyboard'" (click)="filterCategory('keyboard')">Keyboard</a>
+          <a class="list-group-item" [class.active]="currentCategory === 'hdd'" (click)="filterCategory('hdd')">Hard Disk Drive</a>
+          <a class="list-group-item" [class.active]="currentCategory === 'printer'" (click)="filterCategory('printer')">Printer</a>
+          <a class="list-group-item" [class.active]="currentCategory === 'mouse'" (click)="filterCategory('mouse')">Mouse</a>
+        </div>
       </div>
     </div>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-9">
+
+          <div class="row" >
+            <div class="col-sm-4 col-lg-4 col-md-4" *ngFor="let product of products" (click)="onSelect(product)">
+              <div class="thumbnail">
+                <img class="product-img" src="{{ product.urlImage}}" alt="">
+                <div class="caption">
+                  <h4 class="product-name"><a>{{ product.name }}</a>
+                  </h4>
+                  <p>{{ product.desc }}</p>
+                </div>
+                <div class="caption-bottom">
+                  <h4 class="price pull-left">${{ product.price.toFixed(2) }}</h4>
+                  <a class="pull-right btn btn-success" role="button" (click)="addProductToShoppingCart(product)"><span class="glyphicon glyphicon-shopping-cart"></span>  Add to Cart</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
-<product [product]="productSelected"></product>
+</div>
+
+
+<app-footer></app-footer>
+
+<router-outlet></router-outlet>
