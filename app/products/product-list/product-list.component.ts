@@ -17,7 +17,10 @@ export class ProductListComponent {
   cart: Array<Product> = [];
   productSelected: Product;
 
-  constructor(private productService: ProductService, private shoppingCartService: ShoppingCartService) { }
+  constructor(
+    private productService: ProductService,
+    private shoppingCartService: ShoppingCartService
+  ) { }
 
   onSelect(product: Product) {
     console.log(`product ${product.name} was added to cart.`);
