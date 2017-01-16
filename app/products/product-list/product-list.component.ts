@@ -8,7 +8,7 @@ import { ShoppingCartService } from '../../shopping-cart/shared/shopping-cart.se
   selector: 'product-list',
   templateUrl: 'app/products/product-list/product-list.component.html',
   styleUrls: ['app/products/product-list/product-list.component.css'],
-  providers: [ProductService, ShoppingCartService]
+  providers: [ProductService]
 })
 export class ProductListComponent {
 
@@ -16,6 +16,7 @@ export class ProductListComponent {
   currentCategory: string;
   cart: Array<Product> = [];
   productSelected: Product;
+  productAdded: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -31,6 +32,8 @@ export class ProductListComponent {
   // Add a product to the shopping Cart
   addProductToShoppingCart(product: Product) {
     this.shoppingCartService.addShoppingCartProduct(product);
+    this.productAdded = true;
+    setTimeout(() => this.productAdded = false, 3000);
   }
 
   // Get all the products from the product service
