@@ -4,8 +4,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="l-left">
-          <a routerLink="/shopping-cart">My Shopping Cart</a>
-
+          <a routerLink="/product-list">Product List</a>
+        </li>
+        <li class="l-left">
+          <a routerLink="/register">Register</a>
+        </li>
+        <li class="l-left" *ngIf="currentUser === ''">
+          <a routerLink="/login">Log In</a>
+        </li>
+        <li class="l-left" *ngIf="currentUser !== ''">
+          <a (click)="logOut()">Log Out <i>{{ currentUser }}</i></a>
+        </li>
+        <li class="l-left">
+          <a routerLink="/shopping-cart">My Shopping Cart <span class="badge badge-notify">{{ nbItemsShoppingCart }}</span></a>
         </li>
       </ul>
     </div>

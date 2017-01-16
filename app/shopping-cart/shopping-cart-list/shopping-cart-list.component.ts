@@ -7,8 +7,7 @@ import { Product }             from '../../products/shared/product.model';
 
 @Component({
   templateUrl: 'app/shopping-cart/shopping-cart-list/shopping-cart-list.component.html',
-  styleUrls: ['app/shopping-cart/shopping-cart-list/shopping-cart-list.component.css'],
-  providers: [ShoppingCartService]
+  styleUrls: ['app/shopping-cart/shopping-cart-list/shopping-cart-list.component.css']
 })
 export class ShoppingCartListComponent implements OnInit {
 

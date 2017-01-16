@@ -3,10 +3,19 @@ import { ProductService } from '../../products/shared/product.service';
 import { ShoppingCartProduct } from './shopping-cart-product.model';
 import { Injectable } from '@angular/core';
 
+import { Subject }    from 'rxjs/Subject'
+
 @Injectable()
 export class ShoppingCartService {
 
-  constructor(private productService: ProductService) {}
+  nbItemsShoppingCart: number = 0;
+  nbItemsShoppingCartChange: Subject<number> = new Subject<number>();
+  nbItemsShoppingCartChange$ = this.nbItemsShoppingCartChange.asObservable();
+
+
+  constructor(private productService: ProductService) {
+    this.notifyNbItemsShoppingCart();
+  }
 
   // Get the shopping cart from the localStorage.
   getShoppingCart(): Promise<ShoppingCartProduct[]> {
@@ -47,6 +56,7 @@ export class ShoppingCartService {
     }
 
     localStorage.setItem('shopping-cart', JSON.stringify(lsShoppingCart));
+    this.notifyNbItemsShoppingCart();
   }
 
   // Save the shopping cart into the localstorage (only id with quantity)
@@ -57,5 +67,19 @@ export class ShoppingCartService {
     });
 
     localStorage.setItem('shopping-cart', JSON.stringify(lsShoppingCart));
+    this.notifyNbItemsShoppingCart();
   }
+
+  notifyNbItemsShoppingCart(): void {
+    let nbItemsShoppingCart = 0;
+
+    let lsShoppingCart = JSON.parse(localStorage.getItem('shopping-cart')) || [];
+
+    lsShoppingCart.forEach((item: any) => {
+      nbItemsShoppingCart += item.quantity;
+    });
+    this.nbItemsShoppingCart = nbItemsShoppingCart;
+    this.nbItemsShoppingCartChange.next(this.nbItemsShoppingCart);
+  }
+
 }

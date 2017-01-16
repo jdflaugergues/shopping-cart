@@ -24,6 +24,12 @@
       <div class="row">
         <div class="col-md-9">
 
+          <div class="alert alert-success" role="alert" *ngIf="productAdded">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            The product was successfully added to the shopping cart !
+          </div>
+
           <div class="row" >
             <div class="col-sm-4 col-lg-4 col-md-4" *ngFor="let product of products" (click)="onSelect(product)">
               <div class="thumbnail">
